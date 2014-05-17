@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- This file is part sale_min_qty module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/notebook/page[@id=&quot;general&quot;]/field[@name=&quot;price_list&quot;]" position="after">
+        <label name="min_qty"/>
+        <field name="min_qty"/>
+    </xpath>
+</data>

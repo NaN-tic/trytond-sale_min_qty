@@ -1,0 +1,28 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:sale.line:"
+msgid ""
+"Quantity product line \"%s\" is less than quantity available for sale in "
+"product. (Minimum quantity is: %s)."
+msgstr ""
+"La quantitat mínima de venta del producte \"%s\" es menor que la quantitat "
+"mínima del producte. (La quantitat mínima es %s)."
+
+msgctxt "field:product.template,sale_min_qty:"
+msgid "Sale Minimum Qty"
+msgstr "Quantita mínima venta"
+
+msgctxt "field:sale.shop,min_qty:"
+msgid "Minimum Qty"
+msgstr "Quantita mínima"
+
+msgctxt "help:product.template,sale_min_qty:"
+msgid "Minimum quantity available to sale"
+msgstr "La quantitat mínima en una venta"
+
+msgctxt "help:sale.shop,min_qty:"
+msgid "Active validate minimum qty in this shop"
+msgstr ""
+"Activa la validació de la quantitat mínima en les vendes en aquesta botiga"
