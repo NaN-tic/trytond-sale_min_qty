@@ -10,17 +10,42 @@ msgstr ""
 "La cantidad de la línea del producto \"%s\" es menor que la cantidad "
 "disponible para vender en el producto. (La mínima cantidad es %s)."
 
+msgctxt "error:sale.line:"
+msgid ""
+"Quantity product line \"%s\" is more than quantity available for sale in "
+"product. (Maximum quantity is: %s)."
+msgstr ""
+"La cantidad de la línea del producto \"%s\" es mayor que la cantidad "
+"disponible para vender en el producto. (La máxima cantidad es %s)."
+
+msgctxt "field:product.template,sale_max_qty:"
+msgid "Sale Maximum Qty"
+msgstr "Cantidad máxima venta"
+
 msgctxt "field:product.template,sale_min_qty:"
 msgid "Sale Minimum Qty"
 msgstr "Cantidad mínima venta"
+
+msgctxt "field:sale.shop,max_qty:"
+msgid "Maximum Qty"
+msgstr "Cantidad máxima"
 
 msgctxt "field:sale.shop,min_qty:"
 msgid "Minimum Qty"
 msgstr "Cantidad mínima"
 
+msgctxt "help:product.template,sale_max_qty:"
+msgid "Maximum quantity available to sale"
+msgstr "Cantidad máxima venta"
+
 msgctxt "help:product.template,sale_min_qty:"
 msgid "Minimum quantity available to sale"
 msgstr "Cantidad mínima para vender"
+
+msgctxt "help:sale.shop,max_qty:"
+msgid "Active validate maximum qty in this shop"
+msgstr ""
+"Activar la validación de la cantidad máxima en las vendas en esta tienda"
 
 msgctxt "help:sale.shop,min_qty:"
 msgid "Active validate minimum qty in this shop"
