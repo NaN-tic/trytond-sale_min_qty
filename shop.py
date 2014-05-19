@@ -12,3 +12,5 @@ class SaleShop:
     __name__ = 'sale.shop'
     min_qty = fields.Boolean('Minimum Qty',
         help='Active validate minimum qty in this shop')
+    max_qty = fields.Boolean('Maximum Qty',
+        help='Active validate maximum qty in this shop')
