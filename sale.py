@@ -18,6 +18,9 @@ class SaleLine:
                 'min_qty_product': 'Quantity product line "%s" is less than '
                     'quantity available for sale in product. '
                     '(Minimum quantity is: %s).',
+                'max_qty_product': 'Quantity product line "%s" is more than '
+                    'quantity available for sale in product. '
+                    '(Maximum quantity is: %s).',
                 })
 
     def on_change_quantity(self):
@@ -36,5 +39,12 @@ class SaleLine:
                 and not self.product.template.sale_min_qty <= self.quantity):
             self.raise_user_error('min_qty_product',
                 (self.product.rec_name, self.product.sale_min_qty))
+
+        if (user.shop.max_qty
+                and self.product and self.product.template.sale_max_qty
+                and self.quantity
+                and not self.product.template.sale_max_qty > self.quantity):
+            self.raise_user_error('max_qty_product',
+                (self.product.rec_name, self.product.sale_max_qty))
 
         return res

@@ -6,5 +6,7 @@ copyright notices and license types. -->
     <xpath expr="/form/notebook/page[@id=&quot;customers&quot;]/field[@name=&quot;delivery_time&quot;]" position="after">
         <label name="sale_min_qty"/>
         <field name="sale_min_qty"/>
+        <label name="sale_max_qty"/>
+        <field name="sale_max_qty"/>
     </xpath>
 </data>

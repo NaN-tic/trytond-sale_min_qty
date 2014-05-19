@@ -5,5 +5,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
     <xpath expr="/form/notebook/page[@id=&quot;general&quot;]/field[@name=&quot;price_list&quot;]" position="after">
         <label name="min_qty"/>
         <field name="min_qty"/>
+        <label name="max_qty"/>
+        <field name="max_qty"/>
     </xpath>
 </data>

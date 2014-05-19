@@ -12,3 +12,5 @@ class Template:
     __name__ = 'product.template'
     sale_min_qty = fields.Integer('Sale Minimum Qty',
         help='Minimum quantity available to sale')
+    sale_max_qty = fields.Integer('Sale Maximum Qty',
+        help='Maximum quantity available to sale')
