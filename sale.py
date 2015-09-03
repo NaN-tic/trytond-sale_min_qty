@@ -2,6 +2,7 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from trytond.pool import Pool, PoolMeta
+from trytond.model import fields
 from trytond.transaction import Transaction
 
 __all__ = ['SaleLine']
@@ -23,28 +24,31 @@ class SaleLine:
                     '(Maximum quantity is: %s).',
                 })
 
+    @fields.depends('sale')
     def on_change_quantity(self):
         User = Pool().get('res.user')
-        user = User(Transaction().user)
 
-        res = super(SaleLine, self).on_change_quantity()
+        super(SaleLine, self).on_change_quantity()
 
-        # TODO: replace user.shop to sale.shop
-        if not user.shop:
-            return res
+        if Transaction().context.get('check_qty', True):
+            shop = None
+            if self.sale and self.sale.shop:
+                shop = self.sale.shop
+            else:
+                user = User(Transaction().user)
+                if user.shop:
+                    shop = user.shop
 
-        if (user.shop.min_qty
-                and self.product and self.product.template.sale_min_qty
-                and self.quantity
-                and not self.product.template.sale_min_qty <= self.quantity):
-            self.raise_user_error('min_qty_product',
-                (self.product.rec_name, self.product.sale_min_qty))
-
-        if (user.shop.max_qty
-                and self.product and self.product.template.sale_max_qty
-                and self.quantity
-                and not self.product.template.sale_max_qty > self.quantity):
-            self.raise_user_error('max_qty_product',
-                (self.product.rec_name, self.product.sale_max_qty))
-
-        return res
+            if shop:
+                if (shop.min_qty
+                        and self.product and self.product.template.sale_min_qty
+                        and self.quantity
+                        and not self.product.template.sale_min_qty <= self.quantity):
+                    self.raise_user_error('min_qty_product',
+                        (self.product.rec_name, self.product.sale_min_qty))
+                if (shop.max_qty
+                        and self.product and self.product.template.sale_max_qty
+                        and self.quantity
+                        and not self.product.template.sale_max_qty > self.quantity):
+                    self.raise_user_error('max_qty_product',
+                        (self.product.rec_name, self.product.sale_max_qty))
