@@ -32,7 +32,7 @@ class SaleLine:
 
         if Transaction().context.get('check_qty', True):
             shop = None
-            if self.sale and self.sale.shop:
+            if self.sale and hasattr(self.sale, 'shop'):
                 shop = self.sale.shop
             else:
                 user = User(Transaction().user)
@@ -49,6 +49,6 @@ class SaleLine:
                 if (shop.max_qty
                         and self.product and self.product.template.sale_max_qty
                         and self.quantity
-                        and not self.product.template.sale_max_qty > self.quantity):
+                        and not self.product.template.sale_max_qty > self.quantity-1):
                     self.raise_user_error('max_qty_product',
                         (self.product.rec_name, self.product.sale_max_qty))
