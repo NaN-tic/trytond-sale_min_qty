@@ -3,7 +3,7 @@
 The COPYRIGHT file at the top level of this repository contains the full
 copyright notices and license types. -->
 <data>
-    <xpath expr="/form/notebook/page[@id=&quot;customers&quot;]/field[@name=&quot;delivery_time&quot;]" position="after">
+    <xpath expr="/form/notebook/page[@id='customers']/field[@name='lead_time']" position="after">
         <label name="sale_min_qty"/>
         <field name="sale_min_qty"/>
         <label name="sale_max_qty"/>
